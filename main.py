@@ -35,7 +35,7 @@ time.sleep(2)
 gc.enable()
 
 #Start GPS
-py = Pytrack()
+# py = Pytrack()
 l76 = L76GNSS(py, timeout=600)
 #start rtc
 rtc = machine.RTC()

@@ -23,6 +23,7 @@ server = network.Server()
 server.deinit()
 # done switching stuff off
 
-
+# Initialise some other objects
+py = Pytrack()
 
 machine.main('main.py')

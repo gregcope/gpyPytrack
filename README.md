@@ -15,3 +15,8 @@ Aim
 * LTE for Coms
 * BilgeSwitch and Temp (DS18B20) Alarms
 * LED for Status (in switch)
+
+Parts
+
+Referances
+* https://blog.yavilevich.com/2017/03/efficient-dc-12v-to-5v-conversion-for-low-power-electronics-evaluation-of-six-modules/

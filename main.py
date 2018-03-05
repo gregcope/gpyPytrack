@@ -12,7 +12,7 @@ from L76GNSS import L76GNSS
 from pytrack import Pytrack
 import struct
 from battery import Battery
-#import Checks
+from checks import Checks
 
 
 # setup as a station
@@ -24,7 +24,9 @@ if battery.alarm():
     print('Battery Needs a charge')
 else:
     print('Battery okay')
-#checks = Check(60)
+
+check = Checks(60)
+check.whichToDo()
 
 
 import gc

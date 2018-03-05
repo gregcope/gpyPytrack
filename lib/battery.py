@@ -15,7 +15,7 @@ class Battery:
         self.py = py
 
     def volts(self):
-        print('Doing battery check')
+        #print('Doing battery check')
         return self.py.read_battery_voltage()
 
     def alarm(self):

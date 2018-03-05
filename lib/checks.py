@@ -8,23 +8,28 @@
 
 # uses NVRAM to store lastLongCheck
 
+import pycom
+import utime
+
 class Checks:
 
     def __init__(self, interval):
-        self.lastLongCheck = 0
         self.interval = interval
-        self.lastLongCheck = pycom.nvs_get(lastLongCheckTime)
+        self.lastLongCheck = pycom.nvs_get('lastLongCheckTime')
+        print("Doing checks every {} secs".format(self.interval))
+        print("Last long check: {} epoc Secs".format(self.lastLongCheck))
 
     def short(self):
-        print('Doing short checks')
+        print('Doing short checks ...')
 
     def long(self):
-        print('Doing long checks')
-        self.lastLongCheck = pycom.nvs_set(lastLongCheck)
+        print('Doing long checks ...')
+        print("Setting 'lastLongCheckTime' NVRAM to: {} secs".format(utime.time()))
+        pycom.nvs_set('lastLongCheckTime', utime.time())
 
     def whichToDo(self):
         print('Working out which checks to do')
-        if timeNow > self.lastLongCheck + interval:
+        if utime.time() > self.lastLongCheck + interval:
             self.long()
         else:
             self.short()

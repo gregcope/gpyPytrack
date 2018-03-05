@@ -19,9 +19,9 @@ Aim
 Checks
 =============
 * Frequent
- * moo
+  * moo
 * Less Frequent
- * bar
+  * bar
 
 Parts
 ==========

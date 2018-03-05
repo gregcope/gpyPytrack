@@ -16,6 +16,9 @@ class Checks:
     def __init__(self, interval):
         self.interval = interval
         self.lastLongCheck = pycom.nvs_get('lastLongCheckTime')
+        if self.lastLongCheck == None:
+            print('LastLongCheckTime is None')
+            self.lastLongCheck = 1520287405
         print("Doing checks every {} secs".format(self.interval))
         print("Last long check: {} epoc Secs".format(self.lastLongCheck))
 
@@ -29,7 +32,11 @@ class Checks:
 
     def whichToDo(self):
         print('Working out which checks to do')
-        if utime.time() > self.lastLongCheck + interval:
+        print('lastLongCheck is {}'.format(self.lastLongCheck))
+        print('self.interval is {}'.format(self.interval))
+        print('utime.time is {}'.format(utime.time()))
+
+        if utime.time() > self.lastLongCheck + self.interval:
             self.long()
         else:
             self.short()

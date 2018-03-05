@@ -14,7 +14,6 @@ import struct
 from battery import Battery
 from checks import Checks
 
-
 # setup as a station
 
 battery = Battery(py)
@@ -27,7 +26,6 @@ else:
 
 check = Checks(60)
 check.whichToDo()
-
 
 import gc
 # https://forum.pycom.io/topic/1626/pytrack-gps-api/12
@@ -124,8 +122,7 @@ print("$GPGGA>> {} - Free Mem: {}".format(coord1, gc.mem_free()))
 #pycom.rgbled(0x00FF00)
 #time.sleep(2)
 
-lipoVolts = py.read_battery_voltage()
-print("lipo battery Volts: {}".format(lipoVolts))
+
 
 # switch off heartbeat LED
 #pycom.heartbeat(False)

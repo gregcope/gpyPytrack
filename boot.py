@@ -38,3 +38,4 @@ machine.main('main.py')
 end = utime.ticks_us()
 took = end - start
 print("boot.py ... done in: {} uSec".format(took))
+time.sleep(2)

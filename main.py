@@ -11,7 +11,17 @@ from machine import Timer
 from L76GNSS import L76GNSS
 from pytrack import Pytrack
 import struct
+from battery import Battery
+#import Checks
+
 # setup as a station
+
+battery = Battery()
+battery.volts()
+#print ("Battery volts: {}v".format(battery.volts())
+
+#checks = Check(60)
+
 
 import gc
 # https://forum.pycom.io/topic/1626/pytrack-gps-api/12

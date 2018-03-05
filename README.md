@@ -16,6 +16,16 @@ Aim
 * BilgeSwitch and Temp (DS18B20) Alarms
 * LED for Status (in switch)
 
+Checks
+=============
+* Frequent
+  * BilgeSwitch state
+  * temp above / below threshold
+* Less Frequent
+  * Position, battery volts, VCC volts
+* Daily
+  * All of the above and sends status
+
 Parts
 ==========
 * [Pycom Gpy](https://pycom.io/hardware/gpy-specs)

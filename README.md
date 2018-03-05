@@ -19,9 +19,12 @@ Aim
 Checks
 =============
 * Frequent
-  * moo
+  * BilgeSwitch state
+  * temp above / below threshold
 * Less Frequent
-  * bar
+  * Position, battery volts, VCC volts
+* Daily
+  * All of the above and sends status
 
 Parts
 ==========

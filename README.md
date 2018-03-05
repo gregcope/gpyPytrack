@@ -16,6 +16,13 @@ Aim
 * BilgeSwitch and Temp (DS18B20) Alarms
 * LED for Status (in switch)
 
+Checks
+=============
+* Frequent
+** moo
+* Less Frequent
+** bar
+
 Parts
 ==========
 * [Pycom Gpy](https://pycom.io/hardware/gpy-specs)

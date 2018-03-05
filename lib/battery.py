@@ -9,16 +9,17 @@
 
 class Battery:
 
-    def __init__(self):
+    def __init__(self, py):
         self.chargedVolts = 4
         self.low = 3
+        self.py = py
 
     def volts(self):
         print('Doing battery check')
-        return py.read_battery_voltage()
+        return self.py.read_battery_voltage()
 
     def alarm(self):
-        if volts() <= self.low:
+        if self.volts() <= self.low:
             return True
         else:
             return False

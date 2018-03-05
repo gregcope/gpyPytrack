@@ -11,16 +11,19 @@ from machine import Timer
 from L76GNSS import L76GNSS
 from pytrack import Pytrack
 import struct
-#from battery import Battery
+from battery import Battery
 #import Checks
 
 
 # setup as a station
 
-#battery = Battery()
+battery = Battery(py)
 #battery.volts()
-#print ("Battery volts: {}v".format(battery.volts())
-
+print("Battery volts: {0:.2f}v".format(battery.volts()))
+if battery.alarm():
+    print('Battery Needs a charge')
+else:
+    print('Battery okay')
 #checks = Check(60)
 
 

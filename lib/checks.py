@@ -3,7 +3,7 @@
 # takes an interval in Seconds
 
 # usage
-# checks = Check(60)
+# checks = Check(SecondsInternval)
 # checks.whichToDo()
 
 # uses NVRAM to store lastLongCheck

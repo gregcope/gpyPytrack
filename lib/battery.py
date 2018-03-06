@@ -1,9 +1,9 @@
 #
-# A class to keep track of which checks to do
+# A class to keep track of the lipo battery
 #
 
 # Usage
-# bat = battery()
+# bat = battery(Pytrack)
 # bat.volts()
 # bat.alarm
 

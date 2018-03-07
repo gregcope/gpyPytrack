@@ -13,12 +13,14 @@ import utime
 
 class Checks:
 
-    def __init__(self, interval, led, vin, bilgeSwitch, battery):
+    def __init__(self, interval, led, vin, bilgeSwitch, battery, temp):
         self.interval = interval
         self.led = led
         self.vin = vin
         self.bilgeSwitch = bilgeSwitch
         self.battery = battery
+        self.temp = temp
+        self.problemFlag = False
 
         self.lastLongCheck = pycom.nvs_get('lastLongCheckTime')
         if self.lastLongCheck == None:
@@ -31,14 +33,35 @@ class Checks:
         print('Doing short checks ...')
         if self.bilgeSwitch.isOn():
             print('BilgeSwitch.isOn ... no....')
+            problemFlag = True
+        _temp = self.temp.isOkay()
+        if _temp == "HIGH_ALARM":
+            print('Temp is HIGH_ALARM')
+            print("temp is {}".format(self.temp.getTemp()))
+            problemFlag = True
+        if _temp == "LOW_ALARM":
+            print('Temp is HIGH_ALARM')
+            print("temp is {}".format(self.temp.getTemp()))
+            problemFlag = True
+        print("temp is: {}".format(self.temp.isOkay()))
+        # else temp is OKAY!
+        # DONE
 
     def long(self):
         print('Doing long checks ...')
         print("Setting 'lastLongCheckTime' NVRAM to: {} secs".format(utime.time()))
         pycom.nvs_set('lastLongCheckTime', utime.time())
 
+        print("Battery volts: {0:.2f}v".format(self.battery.volts()))
+        if self.battery.alarm():
+            print('Battery Needs a charge')
+        else:
+            print('Battery okay')
+
     def whichToDo(self):
-        print('Working out which checks to do')
+        # reset problemFlag
+        self.problemFlag = False
+        print('Working out which checks to do ...')
         print('lastLongCheck is {}'.format(self.lastLongCheck))
         print('self.interval is {}'.format(self.interval))
         print('utime.time is {}'.format(utime.time()))

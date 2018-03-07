@@ -10,30 +10,33 @@
 
 class Temp:
 
-    HIGH_ALARM = 80
-    LOW_ALARM = 1
+    HIGH_ALARM = const(80)
+    LOW_ALARM = const(1)
 
     def __init__(self, DSDataPin, DSPowerPin):
         self.DSDataPin = DSDataPin
         self.DSPowerPin = DSPowerPin
-        self.temp = 50
+        self._temp = -180
 
     def isOkay(self):
         # is temp between high/low
         # return okay, tooLow, toohigh
 
         # set self.temp
-        getTemp()
-      
-        if self._temp => HIGH_ALARM:
-           return HIGH
+        self.getTemp()
+
+        if self._temp >= HIGH_ALARM:
+           return "HIGH"
         if self._temp <= LOW_ALARM:
-           return LOW
+           return "LOW"
         else:
-           return OKAY
+           return "OKAY"
 
     def getTemp(self):
         # return temp string to 1 decimal place
-        self.readTemp
+        self._temp = self.readTemp()
         # TODO FORMAT to 1 de place
-        return self.temp
+        return self._temp
+
+    def readTemp(self):
+        return 25

@@ -17,22 +17,24 @@ from button import Button
 from vin import Vin
 from bilgeSwitch import BilgeSwitch
 from led import Led
+from temp import Temp
 
 # setup as a station
 
 battery = Battery(py)
 #battery.volts()
-print("Battery volts: {0:.2f}v".format(battery.volts()))
-if battery.alarm():
-    print('Battery Needs a charge')
-else:
-    print('Battery okay')
+#print("Battery volts: {0:.2f}v".format(battery.volts()))
+#if battery.alarm():
+#    print('Battery Needs a charge')
+#else:
+#    print('Battery okay')
 
 led = Led('P12')
 vin = Vin('P18', 'P11')
 bilgeSwitch = BilgeSwitch('P19')
+temp = Temp('P9', 'P10')
 
-check = Checks(60, led, vin, bilgeSwitch, battery)
+check = Checks(60, led, vin, bilgeSwitch, battery, temp)
 check.whichToDo()
 
 import gc

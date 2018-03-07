@@ -13,8 +13,13 @@ import utime
 
 class Checks:
 
-    def __init__(self, interval):
+    def __init__(self, interval, led, vin, bilgeSwitch, battery):
         self.interval = interval
+        self.led = led
+        self.vin = vin
+        self.bilgeSwitch = bilgeSwitch
+        self.battery = battery
+
         self.lastLongCheck = pycom.nvs_get('lastLongCheckTime')
         if self.lastLongCheck == None:
             print('LastLongCheckTime is None')
@@ -24,6 +29,8 @@ class Checks:
 
     def short(self):
         print('Doing short checks ...')
+        if self.bilgeSwitch.isOn():
+            print('BilgeSwitch.isOn ... no....')
 
     def long(self):
         print('Doing long checks ...')

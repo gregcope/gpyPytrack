@@ -13,6 +13,10 @@ from pytrack import Pytrack
 import struct
 from battery import Battery
 from checks import Checks
+from button import Button
+from vin import Vin
+from bilgeSwitch import BilgeSwitch
+from led import Led
 
 # setup as a station
 
@@ -24,7 +28,11 @@ if battery.alarm():
 else:
     print('Battery okay')
 
-check = Checks(60)
+led = Led('P12')
+vin = Vin('P18', 'P11')
+bilgeSwitch = BilgeSwitch('P19')
+
+check = Checks(60, led, vin, bilgeSwitch, battery)
 check.whichToDo()
 
 import gc
@@ -121,7 +129,6 @@ print("$GPGGA>> {} - Free Mem: {}".format(coord1, gc.mem_free()))
 # go to sleep for 60 secs maximum if no button interrupt happens
 #pycom.rgbled(0x00FF00)
 #time.sleep(2)
-
 
 
 # switch off heartbeat LED

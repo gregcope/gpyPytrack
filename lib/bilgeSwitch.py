@@ -14,7 +14,7 @@ class BilgeSwitch:
 	def isOn(self):
         print('is bilgeSwitch On')
         # set regEngablePin ON
-		if True:
-		    return True
-		else
-		    return False
+#		if True:
+#		    return True
+#		else
+#		    return False

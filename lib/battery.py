@@ -18,6 +18,10 @@ class Battery:
         #print('Doing battery check')
         return self.py.read_battery_voltage()
 
+    def voltsString(self):
+        # return string to 2 decimal places
+        return "{0:.2f}v".format(self.volts())
+
     def alarm(self):
         if self.volts() <= self.low:
             return True

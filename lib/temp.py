@@ -39,4 +39,5 @@ class Temp:
         return self._temp
 
     def readTemp(self):
+        # replace with real temp reading code...
         return 25

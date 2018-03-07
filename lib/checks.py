@@ -30,10 +30,14 @@ class Checks:
         print("Last long check: {} epoc Secs".format(self.lastLongCheck))
 
     def short(self):
+        # do short checks like bilgeSwitch and temp
         print('Doing short checks ...')
+        # check bilgeSwitch is off!
         if self.bilgeSwitch.isOn():
             print('BilgeSwitch.isOn ... no....')
             problemFlag = True
+
+        # check temp is okay
         _temp = self.temp.isOkay()
         if _temp == "HIGH_ALARM":
             print('Temp is HIGH_ALARM')
@@ -43,11 +47,14 @@ class Checks:
             print('Temp is HIGH_ALARM')
             print("temp is {}".format(self.temp.getTemp()))
             problemFlag = True
+
+        # to be removed
         print("temp is: {}".format(self.temp.isOkay()))
         # else temp is OKAY!
         # DONE
 
     def long(self):
+        # do long checks like POSn, batteryVolts and VCC volts
         print('Doing long checks ...')
         print("Setting 'lastLongCheckTime' NVRAM to: {} secs".format(utime.time()))
         pycom.nvs_set('lastLongCheckTime', utime.time())
@@ -59,6 +66,7 @@ class Checks:
             print('Battery okay')
 
     def whichToDo(self):
+        # work out which checks to do ...
         # reset problemFlag
         self.problemFlag = False
         print('Working out which checks to do ...')

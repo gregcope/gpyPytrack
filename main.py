@@ -28,7 +28,11 @@ if battery.alarm():
 else:
     print('Battery okay')
 
-check = Checks(60)
+led = Led('P12')
+vin = Vin('P18', 'P11')
+bilgeSwitch = BilgeSwitch('P19')
+
+check = Checks(60, led, vin, bilgeSwitch, battery)
 check.whichToDo()
 
 import gc

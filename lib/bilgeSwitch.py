@@ -11,10 +11,6 @@ class BilgeSwitch:
     def __init__(self, bilgeSwitchPin):
         self.bilgeSwitchPin = bilgeSwitchPin
 
-	def isOn(self):
-        print('is bilgeSwitch On')
-        # set regEngablePin ON
-#		if True:
-#		    return True
-#		else
-#		    return False
+    def isOn(self):
+        print('is bilgeSwitch on ?')
+        return True

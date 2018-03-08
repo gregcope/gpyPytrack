@@ -18,6 +18,16 @@ class L76GNSS:
         self.chrono = Timer.Chrono()
         self.timeout = timeout
         self.timeout_status = True
+
+        # config GPS hints
+        # https://forum.pycom.io/topic/2449/changing-the-gps-frequency-and-configuring-which-nmea-sentences-the-gps-posts/7
+        #Stop logging to local flash of GPS
+        self.stoplog = "$PMTK185,1*23\r\n"
+        self.i2c.writeto(GPS_I2CADDR, self.stoplog)
+        # Use GPS, GONASS, GALILEO and GALILEO Full satellites
+        self.searchmode = "$PMTK353,1,1,1,1,0*2B\r\n"
+        self.i2c.writeto(GPS_I2CADDR, self.searchmode)
+        # Do an empty write ...
         self.reg = bytearray(1)
         self.i2c.writeto(GPS_I2CADDR, self.reg)
 

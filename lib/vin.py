@@ -12,7 +12,7 @@
 class Vin:
 
     CHARGE_THRESHOLD = const(13)
-    LOW_THRESHOLD = const(11.7)
+    LOW_THRESHOLD = 11.7
 
     def __init__(self, VoltageDividerPin, regEngablePin):
         self.regulatorState = False

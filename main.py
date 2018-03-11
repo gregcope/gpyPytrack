@@ -29,9 +29,9 @@ battery = Battery(py)
 #else:
 #    print('Battery okay')
 
-led = Led('P12')
+led = Led('P8')
 vin = Vin('P18', 'P11')
-bilgeSwitch = BilgeSwitch('P19')
+bilgeSwitch = BilgeSwitch('P17')
 temp = Temp('P9', 'P10')
 
 check = Checks(60, led, vin, bilgeSwitch, battery, temp)
@@ -40,13 +40,14 @@ check.whichToDo()
 import gc
 # https://forum.pycom.io/topic/1626/pytrack-gps-api/12
 
-# PIN P9 / G16 for DS18X20 Data
-# PIN P10 / G17 DS18X20 Power?
-# PIN P11 / G22 for Power Switch VCC -> 5V on/off
-# PIN P12 / G28 for external LED
-# PIN P14 / G4 for button
-# PIN P18 / G39 for 7-37V VCC voltage divider
-# PIN P19 / G6 for bilgeSwitch sensor
+# PIN P8 for external LED
+# PIN P9 for DS18X20 Data
+# PIN P10 DS18X20 Power?
+# PIN P11 for Regulator Enable Pin VCC -> 5V
+
+# PIN P16 for button
+# PIN P17 for bilgeSwitch
+# PIN P18 for 7-37V VCC voltage divider
 
 # to sleep with GPS VBACKUP on
 # should go down to 17ua

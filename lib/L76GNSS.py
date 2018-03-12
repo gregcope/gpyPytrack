@@ -3,6 +3,7 @@ import time
 import gc
 import binascii
 
+# http://www.gpsinformation.org/dale/nmea.htm#GGA
 # https://forum.pycom.io/topic/1626/pytrack-gps-api/12
 class L76GNSS:
 

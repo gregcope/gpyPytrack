@@ -15,7 +15,9 @@ from math import floor, modf
 # Import pyb or time for fix time handling
 try:
     # Assume running on pyboard
-    import pyb
+    # import pyb
+    # Assume running on a pycom board
+    import utime
 except ImportError:
     # Otherwise default to time module for non-embedded implementations
     # Note that this forces the resolution of the fix time 1 second instead
@@ -630,7 +632,8 @@ class MicropyGPS(object):
         """Updates a high resolution counter with current time when fix is updated. Currently only triggered from
         GGA, GSA and RMC sentences"""
         try:
-            self.fix_time = pyb.millis()
+            #self.fix_time = pyb.millis()
+            self.fix_time = utime.ticks_ms()
         except NameError:
             self.fix_time = time.time()
 
@@ -666,7 +669,8 @@ class MicropyGPS(object):
 
         # Try calculating fix time assuming using millis on a pyboard; default to seconds if not
         try:
-            current = pyb.elapsed_millis(self.fix_time)
+            #current = pyb.elapsed_millis(self.fix_time)
+            current = utime.ticks_ms() - self.fix_time
         except NameError:
             current = time.time() - self.fix_time
 

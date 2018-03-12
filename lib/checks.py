@@ -74,7 +74,12 @@ class Checks:
         print('self.interval is {}'.format(self.interval))
         print('utime.time is {}'.format(utime.time()))
 
+        # is it a daily check or a short check?
         if utime.time() > self.lastLongCheck + self.interval:
-            self.long()
+            if utime.time() > self.lastDayCheck + 86400:
+                self.daily()
+            else:
+                self.long()
+        # otherwise it must be a short check
         else:
             self.short()

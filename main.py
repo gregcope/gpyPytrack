@@ -34,7 +34,7 @@ vin = Vin('P18', 'P11')
 bilgeSwitch = BilgeSwitch('P17')
 temp = Temp('P9', 'P10')
 
-check = Checks(60, led, vin, bilgeSwitch, battery, temp)
+check = Checks(led, vin, bilgeSwitch, battery, temp)
 check.whichToDo()
 
 import gc

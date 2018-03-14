@@ -17,11 +17,13 @@ class Checks:
     INTERVAL = const(60)
 
     def __init__(self, led, vin, bilgeSwitch, battery, temp):
+        # capture some objects
         self.led = led
         self.vin = vin
         self.bilgeSwitch = bilgeSwitch
         self.battery = battery
         self.temp = temp
+        # a flag
         self.problemFlag = False
 
         self.lastLongCheck = pycom.nvs_get('lastLongCheckTime')
@@ -43,11 +45,11 @@ class Checks:
         _temp = self.temp.isOkay()
         if _temp == "HIGH_ALARM":
             print('Temp is HIGH_ALARM')
-            print("temp is {}".format(self.temp.getTemp()))
+            print("Temp is {}".format(self.temp.getTemp()))
             problemFlag = True
         if _temp == "LOW_ALARM":
             print('Temp is HIGH_ALARM')
-            print("temp is {}".format(self.temp.getTemp()))
+            print("Temp is {}".format(self.temp.getTemp()))
             problemFlag = True
 
         # to be removed

@@ -13,8 +13,10 @@ import utime
 
 class Checks:
 
-    def __init__(self, interval, led, vin, bilgeSwitch, battery, temp):
-        self.interval = interval
+    VCC_THRESHOLD = const(13)
+    INTERVAL = const(60)
+
+    def __init__(self, led, vin, bilgeSwitch, battery, temp):
         self.led = led
         self.vin = vin
         self.bilgeSwitch = bilgeSwitch
@@ -71,11 +73,11 @@ class Checks:
         self.problemFlag = False
         print('Working out which checks to do ...')
         print('lastLongCheck is {}'.format(self.lastLongCheck))
-        print('self.interval is {}'.format(self.interval))
+        print('INTERVAL is {}'.format(INTERVAL))
         print('utime.time is {}'.format(utime.time()))
 
         # is it a daily check or a short check?
-        if utime.time() > self.lastLongCheck + self.interval:
+        if utime.time() > self.lastLongCheck + INTERVAL:
             if utime.time() > self.lastDayCheck + 86400:
                 self.daily()
             else:
@@ -83,3 +85,8 @@ class Checks:
         # otherwise it must be a short check
         else:
             self.short()
+
+    def checkVccVolts(self):
+        # check VCC
+        # if VVC >
+        return True

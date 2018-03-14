@@ -10,9 +10,7 @@
 
 class Status:
 
-    def __init__(self, DSDataPin, DSPowerPin):
-        self.DSDataPin = DSDataPin
-        self.DSPowerPin = DSPowerPin
+    def __init__(self):
         self._doWeNeedToAlert = False
 
     def doWeNeedToAlert(self):

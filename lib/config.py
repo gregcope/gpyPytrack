@@ -42,3 +42,9 @@ class Config:
 
     def _save(self):
         # do the actual saving
+
+    def setVCCState(self, state):
+        self._VCCState = state
+
+    def getVCCState(self):
+        return self._VCCState

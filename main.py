@@ -29,10 +29,20 @@ battery = Battery(py)
 #else:
 #    print('Battery okay')
 
+# P8 External 10 on pytrack
+# p8 is also SD_DAT?  Is it usable?
 led = Led('P8')
+# P11 External 8 on pytrack
 vin = Vin('P18', 'P11')
 bilgeSwitch = BilgeSwitch('P17')
+# P9 External 6 on pytrack connected to PIC_RC1
+# P10 External 7 on pytrack
 temp = Temp('P9', 'P10')
+
+# spare?
+# P4 External 9 on Pytrack
+# P4 is also marked as SD_CMD?  Is it usable?
+# P2 External 5 on pytrack connected to PIC_RC0
 
 check = Checks(led, vin, bilgeSwitch, battery, temp)
 check.whichToDo()

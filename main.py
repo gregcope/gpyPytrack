@@ -29,35 +29,20 @@ battery = Battery(py)
 #else:
 #    print('Battery okay')
 
-# P8 External 10 on pytrack
-# p8 is also SD_DAT?  Is it usable?
-led = Led('P8')
+
+led = Led('P19')
 # P11 External 8 on pytrack
 vin = Vin('P18', 'P11')
-bilgeSwitch = BilgeSwitch('P17')
-# P9 External 6 on pytrack connected to PIC_RC1
-# P10 External 7 on pytrack
-temp = Temp('P9', 'P10')
-
-# spare?
-# P4 External 9 on Pytrack
-# P4 is also marked as SD_CMD?  Is it usable?
-# P2 External 5 on pytrack connected to PIC_RC0
+# P10 External 7 on Pytrack
+bilgeSwitch = BilgeSwitch('P10')
+# P9 External 6 on Pytrack connected to PIC_RC1
+temp = Temp('P9')
 
 check = Checks(led, vin, bilgeSwitch, battery, temp)
 check.whichToDo()
 
 import gc
 # https://forum.pycom.io/topic/1626/pytrack-gps-api/12
-
-# PIN P8 for external LED
-# PIN P9 for DS18X20 Data
-# PIN P10 DS18X20 Power?
-# PIN P11 for Regulator Enable Pin VCC -> 5V
-
-# PIN P16 for button
-# PIN P17 for bilgeSwitch
-# PIN P18 for 7-37V VCC voltage divider
 
 # to sleep with GPS VBACKUP on
 # should go down to 17ua

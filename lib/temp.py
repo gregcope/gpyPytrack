@@ -13,9 +13,8 @@ class Temp:
     HIGH_ALARM = const(80)
     LOW_ALARM = const(1)
 
-    def __init__(self, DSDataPin, DSPowerPin):
+    def __init__(self, DSDataPin):
         self.DSDataPin = DSDataPin
-        self.DSPowerPin = DSPowerPin
         self._temp = -180
 
     def isOkay(self):

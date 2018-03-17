@@ -23,6 +23,7 @@ class Temp:
 
         # set self.temp
         self.getTemp()
+        print("Temp is: {}".format(self.getTemp))
 
         if self._temp >= HIGH_ALARM:
            return "HIGH"

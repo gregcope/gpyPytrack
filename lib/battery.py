@@ -10,8 +10,8 @@
 class Battery:
 
     BATTERY_LOW = const(3)
-    BATTERY_CHARGED = const(4)
-    
+    BATTERY_CHARGING = const(4)
+
     def __init__(self, py):
         self.chargedVolts = 4
         self.py = py
@@ -26,6 +26,12 @@ class Battery:
 
     def alarm(self):
         if self.volts() <= BATTERY_LOW:
+            return True
+        else:
+            return False
+
+    def charging(self):
+        if self.volts() >= BATTERY_CHARGING:
             return True
         else:
             return False

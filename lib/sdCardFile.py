@@ -1,5 +1,6 @@
 #
-# A class to manage an sdcard log file
+# A class to manage an sdcard file
+#
 #
 
 from machine import SD
@@ -17,30 +18,35 @@ class sdCardFile:
     ROTATIONSIZE = const(100000)
 
     def __init__(self, fileName):
-        self._fileName = fileName
+        self.fileName = fileName
         # mount
-        self._sd = SD()
-        os.mount(self._sd, '/sd')
+        self.sd = SD()
+        os.mount(self.sd, '/sd')
         # rotate if required
         self.rotateIfNeeded(self)
         # open file
-        self._f = open(self._fileName, 'w')
+        self.f = open(self.fileName, 'w')
 
     def write(self, ThingToWrite):
-        print(ThingToWrite)
-        self._f.write("{}: {}\n".format(rtc.now(), ThingToWrite))
+        print("{}\n".format(ThingToWrite)
+        self.f.write("{}".format(ThingToWrite))
         os.sync()
+        
+    def writeTimeWithStamp(self, ThingToWrite):
+        print("{}: {}\n".format(rtc.now(), ThingToWrite))
+        self.f.write("{}: {}\n".format(rtc.now(), ThingToWrite))
+    os.sync()
 
     def rotateIfNeeded(self):
         # Check file size
         # and rotate if above ROTATIONSIZE
-        stat = os.stat(self._fileName)
-        print("{} is {} bytes".format(self._fileName, stat[6))
+        stat = os.stat(self.fileName)
+        print("{} is {} bytes".format(self.fileName, stat[6))
         if stat[6] > ROTATIONSIZE:
             # make a new name
-            _newName = self._fileName + '.old'
+            newName = self.fileName + '.old'
             # remove it if exists
             try:
-                os.remove(_newName)
+                os.remove(newName)
             # rename
-            os.rename(self._fileName, _newName)        
+            os.rename(self._fileName, newName)

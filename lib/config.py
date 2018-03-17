@@ -15,36 +15,36 @@ class Config:
         # get the actual values from storage
 
     def getTemp(self):
-        return self._temp
+        return self.temp
 
     def setTemp(self, temp):
-        self._temp = temp
-        self._save()
+        self.temp = temp
+        self.save()
 
     def getBilgeSwitchState(self):
 
     def setBilgeSwitchState(self, state):
-        self._bilgeSwitchState = stat
-        self._save()
+        self.bilgeSwitchState = stat
+        self.save()
 
     def getSaveTime(self):
-        return self._saveTime
+        return self.saveTime
 
     def getCoordinates(self):
         # Do we need to alert?
-        return self._lat, self._lon
+        return self.lat, self.lon
 
     def setCoordinates(self, lat, lon):
         # save the lat/lon
-        self._lat = lat
-        self._lon = lon
-        self._save()
+        self.lat = lat
+        self.lon = lon
+        self.save()
 
-    def _save(self):
+    def save(self):
         # do the actual saving
 
-    def setVCCState(self, state):
-        self._VCCState = state
+    def setVCCIsOn(self, VCCIsOn):
+        self.VCCIsOn = state
 
-    def getVCCState(self):
-        return self._VCCState
+    def getVCCIsOn(self):
+        return self.VCCIsOn

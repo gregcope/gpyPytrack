@@ -38,18 +38,18 @@ class Checks:
         print('Doing short checks ...')
         # check bilgeSwitch is off!
         if self.bilgeSwitch.isOn():
-            print('BilgeSwitch.isOn ... no....')
-            problemFlag = True
+            print('  BilgeSwitch.isOn ... no....')
+            self._problemFlag = True
 
         # check temp is okay
         _temp = self.temp.isOkay()
-        if _temp == "HIGH_ALARM":
-            print('Temp is HIGH_ALARM')
-            print("Temp is {}".format(self.temp.getTemp()))
+        if _temp >= "HIGH_ALARM":
+            print('  Temp is HIGH_ALARM')
+            print("  Temp is {}".format(self.temp.getTemp()))
             problemFlag = True
-        if _temp == "LOW_ALARM":
-            print('Temp is HIGH_ALARM')
-            print("Temp is {}".format(self.temp.getTemp()))
+        if _temp <= "LOW_ALARM":
+            print('  Temp is LOW_ALARM')
+            print("  Temp is {}".format(self.temp.getTemp()))
             problemFlag = True
 
         # to be removed
@@ -62,12 +62,9 @@ class Checks:
         print('Doing long checks ...')
         print("Setting 'lastLongCheckTime' NVRAM to: {} secs".format(utime.time()))
         pycom.nvs_set('lastLongCheckTime', utime.time())
+        # check lipoVolts
+        self.checkLipoVolts()
 
-        print("Battery volts: {0:.2f}v".format(self.battery.volts()))
-        if self.battery.alarm():
-            print('Battery Needs a charge')
-        else:
-            print('Battery okay')
 
     def whichToDo(self):
         # work out which checks to do ...
@@ -92,3 +89,10 @@ class Checks:
         # check VCC
         # if VVC >
         return True
+
+    def checkLipoVolts(self):
+        print("  Battery volts: {0:.2f}v".format(self.battery.volts()))
+        if self.battery.alarm():
+            print('  Battery Needs a charge')
+        else:
+            print('  Battery okay')

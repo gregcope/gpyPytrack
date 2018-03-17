@@ -30,7 +30,7 @@ class Checks:
         if self.lastLongCheck == None:
             print('LastLongCheckTime is None')
             self.lastLongCheck = 1520287405
-        print("Doing checks every {} secs".format(self.interval))
+        print("Doing checks every {} secs".format(INTERVAL))
         print("Last long check: {} epoc Secs".format(self.lastLongCheck))
 
     def short(self):

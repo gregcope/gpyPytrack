@@ -18,6 +18,10 @@ from vin import Vin
 from bilgeSwitch import BilgeSwitch
 from led import Led
 from temp import Temp
+import gc
+
+# enable GC
+gc.enable()
 
 # setup as a station
 
@@ -44,7 +48,6 @@ temp = Temp('P9')
 check = Checks(led, vin, bilgeSwitch, battery, temp)
 check.whichToDo()
 
-import gc
 # https://forum.pycom.io/topic/1626/pytrack-gps-api/12
 
 # to sleep with GPS VBACKUP on
@@ -53,9 +56,6 @@ import gc
 #
 # py.go_to_sleep(True)
 
-
-# enable GC
-gc.enable()
 
 # tell us why we woke
 # display the reset reason code and the sleep remaining in seconds

@@ -110,15 +110,10 @@ print('RTC Set from GPS to UTC:', rtc.now())
 
 chrono = Timer.Chrono()
 chrono.start()
-#sd = SD()
-#os.mount(sd, '/sd')
-#f = open('/sd/gps-record.txt', 'w')
-#while (True):
 
 print("RTC time : {}".format(rtc.now()))
    #coord = l76.coordinates()
    # lat_d, lon_d
-   #f.write("{} - {}\n".format(coord, rtc.now()))
    #print("$GPGLL>> {} - Free Mem: {}".format(coord, gc.mem_free()))
 coord1 = l76.coordinates1()
 # lat_d, lon_d, gps_time, gps_altitude, valid, num_satellites, hdop

@@ -16,13 +16,14 @@ class Checks:
     VCC_THRESHOLD = const(13)
     INTERVAL = const(60)
 
-    def __init__(self, led, vin, bilgeSwitch, battery, temp):
+    def __init__(self, led, vin, bilgeSwitch, battery, temp, stateMachine):
         # capture some objects
         self.led = led
         self.vin = vin
         self.bilgeSwitch = bilgeSwitch
         self.battery = battery
         self.temp = temp
+        self.stateMachine = stateMachine
         # a flag
         self.problemFlag = False
 
@@ -36,6 +37,11 @@ class Checks:
     def short(self):
         # do short checks like bilgeSwitch and temp
         print('Doing short checks ...')
+
+        # start temp conversion
+        # check bilge BilgeSwitch
+        # get temp conversion
+
         # check bilgeSwitch is off!
         if self.bilgeSwitch.isOn():
             print('  BilgeSwitch.isOn ... no....')
@@ -62,8 +68,18 @@ class Checks:
         print('Doing long checks ...')
         print("Setting 'lastLongCheckTime' NVRAM to: {} secs".format(utime.time()))
         pycom.nvs_set('lastLongCheckTime', utime.time())
+
+        # do short checks
+        self.short()
+
         # check lipoVolts
         self.checkLipoVolts()
+
+        # check VCC volts
+        self.checkVccVolts()
+
+        # checkLocation
+        self.checkLocation()
 
 
     def whichToDo(self):

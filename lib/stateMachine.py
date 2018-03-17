@@ -1,21 +1,22 @@
 #
 # A class to keep track of status
+# A stateMachine
 #
 
 # Usage
-# status = Status()
-# status.doWeNeedToAlert()
-# status.sendStatus()
+# stateMachine = StateMachine()
+# stateMachine.doWeNeedToAlert()
+# stateMachine.sendStatus()
 #
 
-class Status:
+class StateMachine:
 
     def __init__(self):
-        self._doWeNeedToAlert = False
+        self.doWeNeedToAlert = False
 
     def doWeNeedToAlert(self):
         # Do we need to alert?
-        return self._doWeNeedToAlert
+        return self.doWeNeedToAlert
 
     def sendStatus(self):
         # send an update

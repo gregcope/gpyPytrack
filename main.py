@@ -18,6 +18,7 @@ from vin import Vin
 from bilgeSwitch import BilgeSwitch
 from led import Led
 from temp import Temp
+from stateMachine import StateMachine
 import gc
 
 # enable GC
@@ -26,6 +27,7 @@ gc.enable()
 # setup as a station
 
 battery = Battery(py)
+stateMachine = StateMachine()
 #battery.volts()
 #print("Battery volts: {0:.2f}v".format(battery.volts()))
 #if battery.alarm():
@@ -45,7 +47,7 @@ bilgeSwitch = BilgeSwitch('P10')
 # Pin 9 free on both Gpy and Fipy
 temp = Temp('P9')
 
-check = Checks(led, vin, bilgeSwitch, battery, temp)
+check = Checks(led, vin, bilgeSwitch, battery, temp, stateMachine)
 check.whichToDo()
 
 # https://forum.pycom.io/topic/1626/pytrack-gps-api/12

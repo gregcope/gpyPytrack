@@ -29,13 +29,16 @@ battery = Battery(py)
 #else:
 #    print('Battery okay')
 
-
-led = Led('P19')
+# Pin 21 free on both Gpy and Fipy
+led = Led('P21')
 # P11 External 8 on pytrack
-vin = Vin('P18', 'P11')
+# Pin 11 and 16 free on both Gpy and Fipy
+vin = Vin('P16', 'P11')
 # P10 External 7 on Pytrack
+# Pin 10 free on both Gpy and Fipy
 bilgeSwitch = BilgeSwitch('P10')
 # P9 External 6 on Pytrack connected to PIC_RC1
+# Pin 9 free on both Gpy and Fipy
 temp = Temp('P9')
 
 check = Checks(led, vin, bilgeSwitch, battery, temp)

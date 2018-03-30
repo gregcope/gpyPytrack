@@ -7,16 +7,19 @@
 # led.on()
 # led.off()
 # etc ...
+from machine import Pin
 
 class Led:
 
     def __init__(self, ledPin):
-        self.ledPin = ledPin
+        self.pin = Pin(ledPin, mode=Pin.OUT)
 
     def On(self):
         print('Led On')
-        # set self.ledPin ON
+        # switch pin on
+        self.pin.value(1)
 
     def regulatorOff(self):
         print('Regulator Off')
-        # set self.ledPin OFF
+        # switch pin off
+        self.pin.value(0)

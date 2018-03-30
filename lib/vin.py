@@ -6,35 +6,50 @@
 # vin = Vin(VoltageDividerPin, regEngablePin)
 # vin.volts()
 # vin.regulatorOn()
+# vin.regulatorOff()
 # vin.regulatorState()
-# etc ...
+
+from machine import Pin, ADC
 
 class Vin:
 
     CHARGE_THRESHOLD = const(13)
     LOW_THRESHOLD = 11.7
+    ADC_VREF = 1200
+    VOLTAGE_DIVIDER_MULTIPLER = 12
 
     def __init__(self, VoltageDividerPin, regEngablePin):
-        self.regulatorState = False
-        self.VoltageDividerPin = VoltageDividerPin
-        self.regEngablePin = regEngablePin
+        # setup regEmablePin to ENABLE regulator
+        self.pin = Pin(regEngablePin, mode=Pin.OUT)
+        # setup VoltageDividerPin to be able to read VoltageDivider
+        adc = machine.ADC()
+        adc.vref(ADC_VREF)
+        self.adcPin = adc.channel(pin=VoltageDividerPin, attn=ADC.ATTN_11DB)
 
     def volts(self):
         # read ADC on VoltageDividerPin and work out voltage
         print('checking vin volts')
-
-        _vinVolts = 0
-        # do stuff to VoltageDividerPin
-        return _vinVolts
+        vinVolts = 0
+        # ADC read VoltageDividerPin
+        adcVal = self.adcPin.value()
+        # return the ADC vaue times the VOLTAGE_DIVIDER_MULTIPLER
+        # to get the actual volts on the VoltageDivider
+        return adcVal * VOLTAGE_DIVIDER_MULTIPLER
+        #return _vinVolts
 
     def regulatorOn(self):
         print('Regulator On')
-        # set regEngablePin ON
+         # set regEngablePin ON
+        self.pin.hold(False)
+        self.pin.value(1)
+        self.pin.hold(True)
 
     def regulatorOff(self):
         print('Regulator Off')
         # set regEngablePin OFF
+        self.pin.hold(False)
+        self.pin.value(0)
+        self.pin.hold(True)
 
     def regulatorState(self):
-        print('Regulator is: X')
-        # reaf regEngablePin state
+        return self.pin.value()

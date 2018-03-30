@@ -195,6 +195,7 @@ DATA</text>
 <text x="27.559" y="26.289" size="0.6096" layer="25" font="vector" ratio="20" rot="R180">P17</text>
 <text x="2.54" y="34.798" size="0.6096" layer="25" font="vector" ratio="20" rot="R90">GND</text>
 <text x="2.794" y="29.718" size="0.6096" layer="25" font="vector" ratio="20" rot="R90">VCC</text>
+<text x="3.556" y="17.653" size="0.8128" layer="25" font="vector" ratio="20" rot="R270">Pyboard LED </text>
 </plain>
 <libraries>
 <library name="SparkFun-Connectors">

@@ -191,6 +191,8 @@ DATA</text>
 <text x="38.481" y="19.939" size="0.6096" layer="25" font="vector" ratio="20" rot="R270">3V3</text>
 <text x="38.481" y="22.479" size="0.6096" layer="25" font="vector" ratio="20" rot="R270">GND</text>
 <text x="38.481" y="25.146" size="0.6096" layer="25" font="vector" ratio="20" rot="R270">GND</text>
+<text x="9.144" y="11.938" size="0.6096" layer="25" font="vector" ratio="20" rot="R180">GND</text>
+<text x="9.144" y="14.097" size="0.6096" layer="25" font="vector" ratio="20" rot="R180">+5V</text>
 </plain>
 <libraries>
 <library name="SparkFun-Connectors">

@@ -20,7 +20,7 @@ Checks
 =============
 * Frequent
   * BilgeSwitch state
-  * temp above / below threshold
+  * Temp above / below threshold
 * Less Frequent
   * Position, battery volts, VCC volts
 * Daily

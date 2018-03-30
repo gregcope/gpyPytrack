@@ -163,7 +163,6 @@ gregcope@gmail.com</text>
 <text x="19.939" y="26.289" size="0.6096" layer="25" font="vector" ratio="20" rot="R180">P20</text>
 <text x="22.479" y="26.289" size="0.6096" layer="25" font="vector" ratio="20" rot="R180">P19</text>
 <text x="25.019" y="26.289" size="0.6096" layer="25" font="vector" ratio="20" rot="R180">P18</text>
-<text x="27.559" y="26.289" size="0.6096" layer="25" font="vector" ratio="20" rot="R180">P17</text>
 <text x="30.099" y="26.289" size="0.6096" layer="25" font="vector" ratio="20" rot="R180">P16</text>
 <text x="32.639" y="26.289" size="0.6096" layer="25" font="vector" ratio="20" rot="R180">P15</text>
 <text x="35.179" y="26.289" size="0.6096" layer="25" font="vector" ratio="20" rot="R180">P14</text>
@@ -182,6 +181,16 @@ gregcope@gmail.com</text>
 <text x="32.639" y="0.889" size="0.6096" layer="25" font="vector" ratio="20" rot="R180">P10</text>
 <text x="35.179" y="0.889" size="0.6096" layer="25" font="vector" ratio="20" rot="R180">P11</text>
 <text x="37.719" y="0.889" size="0.6096" layer="25" font="vector" ratio="20" rot="R180">P12</text>
+<text x="36.068" y="8.001" size="0.6096" layer="25" font="vector" ratio="20">BILGE
+SWITCH</text>
+<text x="38.608" y="7.239" size="0.6096" layer="25" font="vector" ratio="20" rot="R270">LED</text>
+<text x="35.306" y="13.208" size="0.6096" layer="25" font="vector" ratio="20">DS18B20
+DATA</text>
+<text x="35.687" y="11.176" size="0.6096" layer="25" font="vector" ratio="20">BUTTON</text>
+<text x="38.608" y="17.399" size="0.6096" layer="25" font="vector" ratio="20" rot="R270">3V3</text>
+<text x="38.481" y="19.939" size="0.6096" layer="25" font="vector" ratio="20" rot="R270">3V3</text>
+<text x="38.481" y="22.479" size="0.6096" layer="25" font="vector" ratio="20" rot="R270">GND</text>
+<text x="38.481" y="25.146" size="0.6096" layer="25" font="vector" ratio="20" rot="R270">GND</text>
 </plain>
 <libraries>
 <library name="SparkFun-Connectors">
@@ -817,15 +826,14 @@ design rules under a new name.</description>
 <attribute name="NAME" x="11.303" y="29.845" size="0.6096" layer="25" font="vector" ratio="20" rot="R90"/>
 </element>
 <element name="PY" library="SparkFun-Connectors" package="1X14" value="RST" x="3.81" y="2.54" smashed="yes"/>
-<element name="VIN" library="SparkFun-Connectors" package="1X14" value="GPY" x="36.83" y="24.13" smashed="yes" rot="R180">
-<attribute name="VALUE" x="39.751" y="24.384" size="0.6096" layer="25" font="vector" ratio="20" rot="R180"/>
-</element>
+<element name="VIN" library="SparkFun-Connectors" package="1X14" value="GPY" x="36.83" y="24.13" smashed="yes" rot="R180"/>
 <element name="J2" library="SparkFun-Retired" package="SCREWTERMINAL-5MM-2" value="VCC" x="6.35" y="30.48" rot="R90">
 <attribute name="SF_SKU" value="PRT-08432" x="6.35" y="30.48" size="1.778" layer="27" rot="R90" display="off"/>
 </element>
 <element name="JST_5V" library="SparkFun-Connectors" package="JST-2-PTH-NS" value="5v" x="6.35" y="12.7" rot="R90"/>
-<element name="HEADER" library="SparkFun-Connectors" package="1X08" value="J1" x="40.64" y="6.35" rot="R90">
+<element name="HEADER" library="SparkFun-Connectors" package="1X08" value="J1" x="40.64" y="6.35" smashed="yes" rot="R90">
 <attribute name="PROD_ID" value="CONN-08438" x="40.64" y="6.35" size="1.778" layer="27" rot="R90" display="off"/>
+<attribute name="VALUE" x="42.672" y="5.08" size="0.6096" layer="27" font="vector" ratio="20" rot="R90"/>
 </element>
 </elements>
 <signals>
@@ -848,7 +856,6 @@ design rules under a new name.</description>
 <contactref element="JST_5V" pad="1"/>
 <contactref element="HEADER" pad="7"/>
 <contactref element="HEADER" pad="8"/>
-<wire x1="40.64" y1="21.59" x2="40.64" y2="24.13" width="0" layer="19" extent="1-1"/>
 </signal>
 <signal name="VCC" class="1">
 <contactref element="R2" pad="P$2"/>

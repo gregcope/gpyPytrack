@@ -46,10 +46,10 @@ stateMachine = StateMachine()
 led = Led('P11')
 # P11 External 8 on pytrack
 # Pin 11 and 16 free on both Gpy and Fipy
-vin = Vin('P13', 'P1x')
+vin = Vin('P16', 'P10')
 # P10 External 7 on Pytrack
 # Pin 10 free on both Gpy and Fipy
-bilgeSwitch = BilgeSwitch('P10')
+bilgeSwitch = BilgeSwitch('P13')
 # P9 External 6 on Pytrack connected to PIC_RC1
 # Pin 9 free on both Gpy and Fipy
 temp = Temp('P9')

@@ -5,7 +5,7 @@
 # Usage
 # bat = battery(Pytrack)
 # bat.volts()
-# bat.alarm
+# bat.alarm()
 
 class Battery:
 
@@ -13,7 +13,6 @@ class Battery:
     BATTERY_CHARGING = const(4)
 
     def __init__(self, py):
-        self.chargedVolts = 4
         self.py = py
 
     def volts(self):

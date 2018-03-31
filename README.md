@@ -41,6 +41,8 @@ Daughter board
 ==============
 The Daughter board fits between the Gpy/Fipy and Pytrack module via headers (see pictures when I add them).  It is designed to hold certain parts and expose headers for pins.   Its footprint is similar to the Pytrack to keep space requirements down.
 
+![pycomDaughterBoard.brd.png](/pycomDaughterBoard.brd.png)
+
 The Daughter board mounts;
 * VCC input cable
 * VCC voltagedivider connected to an ADC pin to measure VCC

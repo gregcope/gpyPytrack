@@ -44,9 +44,9 @@ py.go_to_sleep(gps=True)
 # roughly works ...
 vin = Vin('P16', 'P10')
 led = Led('P11')
+battery = Battery(py)
 
 # still need work
-battery = Battery(py)
 stateMachine = StateMachine()
 bilgeSwitch = BilgeSwitch('P13')
 temp = Temp('P9')

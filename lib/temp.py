@@ -8,6 +8,10 @@
 # temp.tooHigh()
 # temp.isOkay() returns, Okay, tooLow, tooHigh
 
+from machine import Pin
+from onewire import DS18X20
+from onewire import OneWire
+
 class Temp:
 
     # Temp Consts
@@ -16,7 +20,8 @@ class Temp:
 
     def __init__(self, DSDataPin):
         # Pin with the DS18B20 on
-        self.DSDataPin = DSDataPin
+        ow = OneWire(pin(DSDataPin))
+        self.pwTemp = DS18x20(ow)
         # temp variable
         self.temp = -180
 
@@ -37,11 +42,11 @@ class Temp:
            return "OKAY"
 
     def getTemp(self):
-        # return temp string to 1 decimal place
-        self.temp = self.readTemp()
+        # get temp
+        # TODO Needs to be async or some sort of thread
+        self.pwTemp.start_conversion()
+        # wait a bit
+        self.temp = self.pwTemp.read_temp_async()
+
         # TODO FORMAT to 1 de place
         return self.temp
-
-    def readTemp(self):
-        # TODO replace with real temp reading code...
-        return 25

@@ -31,11 +31,11 @@ class sdCardFile:
         print("{}\n".format(ThingToWrite)
         self.f.write("{}".format(ThingToWrite))
         os.sync()
-        
+
     def writeTimeWithStamp(self, ThingToWrite):
         print("{}: {}\n".format(rtc.now(), ThingToWrite))
         self.f.write("{}: {}\n".format(rtc.now(), ThingToWrite))
-    os.sync()
+        os.sync()
 
     def rotateIfNeeded(self):
         # Check file size

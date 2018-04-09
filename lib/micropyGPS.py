@@ -815,10 +815,12 @@ class MicropyGPS(object):
                            'GPGLL': gpgll, 'GLGLL': gpgll,
                           }
     # https://github.com/inmcm/micropyGPS/issues/7
+    # adding more Sentences
     supported_sentences['GNRMC'] = gprmc
     supported_sentences['GLGSV'] = gpgsv
     supported_sentences['GNGLL'] = gpgll
     supported_sentences['GNGSA'] = gpgsa
+    # end of adding more Sententces
 
 if __name__ == "__main__":
     pass

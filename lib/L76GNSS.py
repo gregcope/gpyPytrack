@@ -23,11 +23,14 @@ class L76GNSS:
         # config GPS hints
         # https://forum.pycom.io/topic/2449/changing-the-gps-frequency-and-configuring-which-nmea-sentences-the-gps-posts/7
         # Stop logging to local flash of GPS
-        self.stoplog = "$PMTK185,1*23\r\n"
-        self.i2c.writeto(GPS_I2CADDR, self.stoplog)
+        #self.stoplog = "$PMTK185,1*23\r\n"
+        #self.i2c.writeto(GPS_I2CADDR, self.stoplog)
+        self.i2c.writeto(GPS_I2CADDR, "$PMTK185,1*23\r\n")
         # Use GPS, GONASS, GALILEO and GALILEO Full satellites
-        self.searchmode = "$PMTK353,1,1,1,1,0*2B\r\n"
-        self.i2c.writeto(GPS_I2CADDR, self.searchmode)
+        #self.searchmode = "$PMTK353,1,1,1,1,0*2B\r\n"
+        #self.i2c.writeto(GPS_I2CADDR, self.searchmode)
+        self.i2c.writeto(GPS_I2CADDR, "$PMTK353,1,1,1,1,0*2B\r\n")
+        
         # Do an empty write ...
         self.reg = bytearray(1)
         self.i2c.writeto(GPS_I2CADDR, self.reg)

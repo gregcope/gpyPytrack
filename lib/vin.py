@@ -3,7 +3,7 @@
 #
 
 # Usage
-# vin = Vin(VoltageDividerPin, regEngablePin)
+# vin = Vin(voltageDividerPin, regEngablePin)
 # vin.volts()
 # vin.regulatorOn()
 # vin.regulatorState()
@@ -15,7 +15,6 @@ class Vin:
     LOW_THRESHOLD = 11.7
 
     def __init__(self, voltageDividerPin, regEngablePin):
-        self.voltageDividerPin = voltageDividerPin
 
         # setup the regulator pin
         # as output to toggle the regulator

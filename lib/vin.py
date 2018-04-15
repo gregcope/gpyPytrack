@@ -9,12 +9,15 @@
 # vin.regulatorState()
 # etc ...
 
+from machine import Pin
+
 class Vin:
 
     CHARGE_THRESHOLD = const(13)
     LOW_THRESHOLD = 11.7
 
     def __init__(self, voltageDividerPin, regEngablePin):
+        # https://docs.pycom.io/chapter/firmwareapi/pycom/machine/Pin.html
 
         # setup the regulator pin
         # as output to toggle the regulator

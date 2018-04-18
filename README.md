@@ -46,7 +46,7 @@ The Daughter board fits between the Gpy/Fipy and Pytrack module via headers (see
 The Daughter board mounts;
 * VCC voltagedivider connected to an ADC pin to measure VCC
 * Switchable Regulator with ENABLE pin connected to a pin
-* JST(s) to breakout the relevant connections for the VCC LED, Switch, DS18B20 Temp module, BilgeSwitch, 5V for the Pytrack USB port
+* JST(s) to breakout the relevant connections for the 11-36v VCC+GND, LED, Switch, DS18B20 Temp module, BilgeSwitch, 5V+GND for the Pytrack USB port
 * __Note we will be putting 2x4pin JSTs on the Pytrack External IO to use those as well (simplifies this board and makes it smaller)__  
 
 See the eagle files for the details.

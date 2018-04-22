@@ -44,6 +44,9 @@ class Temp:
     def getTemp(self):
         # get temp
         # TODO Needs to be async or some sort of thread
+        # def startTempThread(self):
+        # self.temp_thread = _thread.start_new_thread(self.feedMicroGPS,())
+        # do while ....
         self.pwTemp.start_conversion()
         # wait a bit
         self.temp = self.pwTemp.read_temp_async()

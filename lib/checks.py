@@ -24,8 +24,6 @@ class Checks:
         self.battery = battery
         self.temp = temp
         self.stateMachine = stateMachine
-        # a flag
-        self.problemFlag = False
 
         self.lastLongCheck = pycom.nvs_get('lastLongCheckTime')
         if self.lastLongCheck == None:
@@ -45,18 +43,18 @@ class Checks:
         # check bilgeSwitch is off!
         if self.bilgeSwitch.isOn():
             print('  BilgeSwitch.isOn ... no....')
-            self._problemFlag = True
+            self.stateMachine.doWeNeedToAlert(True, "BilgeSwitch")
 
         # check temp is okay
         _temp = self.temp.isOkay()
         if _temp >= "HIGH_ALARM":
             print('  Temp is HIGH_ALARM')
             print("  Temp is {}".format(self.temp.getTemp()))
-            problemFlag = True
+            self.stateMachine.doWeNeedToAlert(True, "tempTooHigh")
         if _temp <= "LOW_ALARM":
             print('  Temp is LOW_ALARM')
             print("  Temp is {}".format(self.temp.getTemp()))
-            problemFlag = True
+            self.stateMachine.doWeNeedToAlert(True, "tempTooLow")
 
         # to be removed
         print("temp is: {}".format(self.temp.isOkay()))

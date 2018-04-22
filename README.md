@@ -50,7 +50,7 @@ The Daughter board mounts;
 * VCC voltagedivider connected to an ADC pin to measure VCC
 * Switchable Regulator with ENABLE pin connected to a pin
 * JST(s) to breakout the relevant connections for the 11-36v VCC+GND, LED, Switch, DS18B20 Temp module, BilgeSwitch, 5V+GND for the Pytrack USB port
-* __Note we will be putting 2x4pin JSTs on the Pytrack External IO to use those as well (simplifies this board and makes it smaller)__  
+* __Note we will be putting 2x5pin XH JSTs on the Pytrack External IO to use those as well (simplifies this board and makes it smaller)__  
 
 See the eagle files for the details.
 

@@ -3,7 +3,7 @@
 #
 
 # Usage
-# temp = Temp(DSDataPin, DSPowerPin)
+# temp = Temp(DSDataPin)
 # temp.tooLow()
 # temp.tooHigh()
 # temp.isOkay() returns, Okay, tooLow, tooHigh
@@ -41,15 +41,25 @@ class Temp:
         else:
            return "OKAY"
 
-    def getTemp(self):
-        # get temp
-        # TODO Needs to be async or some sort of thread
-        # def startTempThread(self):
-        # self.temp_thread = _thread.start_new_thread(self.feedMicroGPS,())
-        # do while ....
-        self.pwTemp.start_conversion()
-        # wait a bit
-        self.temp = self.pwTemp.read_temp_async()
+    def startTempThread(self):
+	# starts Temp thread
+	self.temp_thread = _thread.start_new_thread(self.getReading,())
 
-        # TODO FORMAT to 1 de place
-        return self.temp
+    def getTemp(self):
+	# return temp which is already fixed to 2 decimal palace e.g. 20.12
+	#self.temp = float("{0:.1f}v".format(self.temp))
+	#self.temp = round(self.temp, 1)
+	return self.temp
+
+    def getReading(self):
+        # get temp
+        # start converstion
+        self.pwTemp.start_conversion()
+
+        # wait a bit until we have a reading
+	while self.pwTemp.read_temp_async() != None:
+        	time.sleep(0.1)
+
+	# to get here self.pwTemp.read_temp_async() must have returned something
+	self.temp = self.pwTemp.read_temp_async()
+

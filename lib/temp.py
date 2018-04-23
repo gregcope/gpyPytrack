@@ -7,6 +7,8 @@
 # temp.tooLow()
 # temp.tooHigh()
 # temp.isOkay() returns, Okay, tooLow, tooHigh
+# based on https://github.com/pycom/pycom-libraries/blob/master/examples/DS18X20/main.py
+# https://forum.pycom.io/topic/303/ds18b20-temperature-sensor/25
 
 from machine import Pin
 from onewire import DS18X20
